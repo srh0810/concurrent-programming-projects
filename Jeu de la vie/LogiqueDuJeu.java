@@ -68,6 +68,10 @@ public class LogiqueDuJeu {
             grille = nouvelleGrille;
         }
     }
+
+    public int[][] get_grille(){
+        return grille;
+    }
     // ajouter la possibilité d'arrêt si le jeu est stable
 
 
