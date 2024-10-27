@@ -27,7 +27,7 @@ public class LogiqueDuJeu {
         if (voisins < 2 || voisins > 3) {
             nouvelleGrille[i][j] = 0;
         } else {
-            nouvelleGrille[i][j] = grille[i][j]; // garder l'état actuel
+            nouvelleGrille[i][j] = grille[i][j]; 
         }
     }
 
@@ -36,7 +36,7 @@ public class LogiqueDuJeu {
         if (voisins == 3) {
             nouvelleGrille[i][j] = 1;
         } else {
-            nouvelleGrille[i][j] = grille[i][j]; // garder l'état actuel
+            nouvelleGrille[i][j] = grille[i][j]; 
         }
     }
 
@@ -46,12 +46,16 @@ public class LogiqueDuJeu {
         for (int i = 0; i < nb_lignes; i++) {
             for (int j = 0; j < nb_colonnes; j++) {
                 if (grille[i][j] == 1) {
-                    CelluleMorte(i, j, nouvelleGrille); // appliquer règles pour cellule vivante
+                    CelluleMorte(i, j, nouvelleGrille); 
                 } else {
-                    CelluleVivante(i, j, nouvelleGrille); // appliquer règles pour cellule morte
+                    CelluleVivante(i, j, nouvelleGrille);
                 }
             }
         }
         grille = nouvelleGrille; // mise à jour de la grille avec la nouvelle génération
+    }
+
+    public int[][] get_grille(){
+        return grille;
     }
 }
