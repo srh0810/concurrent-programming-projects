@@ -1,6 +1,4 @@
 import java.util.Arrays;
-import java.util.Random;
-
 public class Tri_Fusion extends Thread{
     static double[] listeatrier =new double[10000000];
     // 5 est la meilleure valeur (plus de 3 fois plus rapide qu'un seul thread) sur I7.
