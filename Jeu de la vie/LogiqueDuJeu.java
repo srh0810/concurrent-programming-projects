@@ -2,6 +2,7 @@ public class LogiqueDuJeu {
     int[][] grille;
     int nb_lignes;
     int nb_colonnes;
+    
 
     public LogiqueDuJeu(int nb_lignes, int nb_colonnes) {
         this.nb_lignes = nb_lignes;

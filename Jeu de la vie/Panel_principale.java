@@ -5,6 +5,7 @@ public class Panel_principale extends JPanel{
 
     public Panel_principale(){
         super();
+        setBackground(Color.BLACK);
 
     }
 
