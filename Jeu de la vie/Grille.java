@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 
@@ -92,20 +94,39 @@ public class Grille extends JPanel{
     }
 
     public void passer_n_etape(int n){
-        for(int k=0;k<n;k++){
-            jeu.EvolutionGrille();
-            actualiser_grille();
-            fenetre.repaint();  
-            fenetre.revalidate(); 
-            try {
-                TimeUnit.MILLISECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+        final int[] stepCounter = {0};  // Utilisation d'un tableau pour pouvoir le modifier dans l'action
+
+        Timer timer = new Timer(100, new ActionListener() { // 100ms entre chaque étape, ajustez selon besoin
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (stepCounter[0] < n) {
+                    jeu.EvolutionGrille();  // Calcul de l'évolution
+                    actualiser_grille();    // Mise à jour de l'affichage
+                    fenetre.repaint();
+                    fenetre.revalidate();
+                    stepCounter[0]++;
+                } else {
+                    ((Timer) e.getSource()).stop();  // Arrêter le timer quand c'est fini
+                }
             }
-            
-        }
+        });
+
+        timer.start();  // Démarrer le timer
     }
+        //for(int k=0;k<n;k++){
+        //    jeu.EvolutionGrille();
+        //    actualiser_grille();
+        //    fenetre.repaint();  
+        //    fenetre.revalidate(); 
+        //    try {
+        //        TimeUnit.MILLISECONDS.sleep(1);
+        //    } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+        //        e.printStackTrace();
+         //   }
+            
+        //}
+    
 
     public void jeu_infini(){
         while(true){
