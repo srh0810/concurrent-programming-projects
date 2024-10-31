@@ -2,6 +2,7 @@ public class LogiqueDuJeu {
     int[][] grille;
     int nb_lignes;
     int nb_colonnes;
+    static final int nombre_de_tours=1000;
     
 
     public LogiqueDuJeu(int nb_lignes, int nb_colonnes) {

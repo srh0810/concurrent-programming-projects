@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 
 
@@ -62,12 +63,8 @@ public class Grille extends JPanel{
     public void remplir_cases(int etat, int i, int j){
         if (etat== 1) {
             card_cases[i][j].show(cases[i][j], "vivant");  
-            cases[i][j].repaint();  // Forcer le redessin de la case
-            cases[i][j].revalidate();
         } else {
         card_cases[i][j].show(cases[i][j], "mort");  
-        cases[i][j].repaint();  // Forcer le redessin de la case
-        cases[i][j].revalidate(); // Réinitialiser la case
         }
     }
 
@@ -75,13 +72,9 @@ public class Grille extends JPanel{
         if (etat== 1) {
             jeu.get_grille()[i][j]=1;
             card_cases[i][j].show(cases[i][j], "vivant");  
-            cases[i][j].repaint();  // Forcer le redessin de la case
-            cases[i][j].revalidate();
         } else {
             jeu.get_grille()[i][j]=0;
             card_cases[i][j].show(cases[i][j], "mort"); 
-            cases[i][j].repaint();  // Forcer le redessin de la case
-            cases[i][j].revalidate();  // Réinitialiser la case
         }
         
     }
@@ -92,12 +85,25 @@ public class Grille extends JPanel{
                 remplir_cases(jeu.get_grille()[i][j], i, j);
             }
         }
+        fenetre.tour_actuel += 1;
+        fenetre.nb_detours_actuel.setText("L'étape en cours est "+ fenetre.tour_actuel);
+        fenetre.repaint();  
+        fenetre.revalidate();  
     }
 
     public void passer_n_etape(int n){
         for(int k=0;k<n;k++){
             jeu.EvolutionGrille();
             actualiser_grille();
+            fenetre.repaint();  
+            fenetre.revalidate(); 
+            try {
+                TimeUnit.MILLISECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
         }
     }
 
@@ -113,6 +119,11 @@ public class Grille extends JPanel{
                 modifier_cases(0, i, j);
             }
         }
+        fenetre.tour_actuel = 0;
+        fenetre.nb_detours_actuel.setText("L'étape en cours est "+ fenetre.tour_actuel);
+        fenetre.repaint();
+        fenetre.revalidate();
+        
     }
 
 
