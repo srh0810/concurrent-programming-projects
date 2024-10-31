@@ -14,6 +14,7 @@ public class Grille extends JPanel{
     private LogiqueDuJeu jeu;
     private Fenetre fenetre;
     private boolean etat_du_jeu;
+    private Timer timer;
     
 
     public Grille(Fenetre f, LogiqueDuJeu jeu){
@@ -95,18 +96,22 @@ public class Grille extends JPanel{
 
     public void passer_n_etape(int n){
         final int[] stepCounter = {0};  // Utilisation d'un tableau pour pouvoir le modifier dans l'action
+        timer = new Timer(100, new ActionListener() { // 100ms entre chaque étape, ajustez selon besoin
 
-        Timer timer = new Timer(100, new ActionListener() { // 100ms entre chaque étape, ajustez selon besoin
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (stepCounter[0] < n) {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            
+                            if (stepCounter[0] < n && etat_du_jeu ) {
+                    
                     jeu.EvolutionGrille();  // Calcul de l'évolution
                     actualiser_grille();    // Mise à jour de l'affichage
                     fenetre.repaint();
                     fenetre.revalidate();
                     stepCounter[0]++;
                 } else {
-                    ((Timer) e.getSource()).stop();  // Arrêter le timer quand c'est fini
+                    ((Timer) e.getSource()).stop();
+                    arreter_jeu();
+                      // Arrêter le timer quand c'est fini
                 }
             }
         });
@@ -149,10 +154,13 @@ public class Grille extends JPanel{
 
 
     public void activer_jeu(){
-        etat_du_jeu = true;    
+        this.etat_du_jeu = true;    
     }
     public void arreter_jeu(){
-        etat_du_jeu = false;    
+        this.etat_du_jeu = false;  
+        //if (timer != null) {
+         //   timer.stop();  // Arrêter le Timer si nécessaire
+        //}  
     }
 
     public boolean get_etat_du_jeu(){

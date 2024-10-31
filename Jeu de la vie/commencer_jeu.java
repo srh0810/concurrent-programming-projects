@@ -18,7 +18,6 @@ public class commencer_jeu implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         g1.activer_jeu();
         g1.passer_n_etape(LogiqueDuJeu.nombre_de_tours);
-        g1.arreter_jeu();
     }
         
 }
