@@ -7,10 +7,12 @@ public class case_blanche extends JPanel {
     private int j;
     private Grille grille;
 
-    public case_blanche(int i,int j){
+    public case_blanche(int i){
         super();
-        setSize(new Dimension(i/62,j/62));
-        setPreferredSize(new Dimension(i/62,j/62));
+        //setSize(new Dimension(i,j));
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(i,i));
+        
         setBackground(Color.BLACK);
     }
 
@@ -19,6 +21,6 @@ public class case_blanche extends JPanel {
     
         // Dessiner un carré plein
         g.setColor(Color.WHITE); 
-        g.fillRect(0, 0, getWidth()*1000, getHeight()*1000); // Remplir le bouton de noir
+        g.fillRect(0, 0, getWidth(), getHeight()); // Remplir le bouton de noir
     }
 }

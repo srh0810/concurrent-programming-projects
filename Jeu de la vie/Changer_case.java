@@ -20,7 +20,10 @@ public class Changer_case implements ActionListener{
         if (!grille.get_etat_du_jeu()){
             grille.modifier_cases((grille.getJeu().get_grille()[i][j]+1)%2,i, j);
             System.out.println("i = "+i+" j= "+j+ " état=" + grille.getJeu().get_grille()[i][j]);
+            System.out.println("largeur de la case : "+ grille.getCases()[i][j].getHeight() + "longueur la case :" + grille.getCases()[i][j].getWidth());
+            System.out.println("position x de la case : "+ grille.getCases()[i][j].getX());
         }
+        
         
     }
 }

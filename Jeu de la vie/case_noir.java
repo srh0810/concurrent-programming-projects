@@ -4,10 +4,13 @@ import java.awt.event.ActionListener;
 
 public class case_noir extends JPanel {
     
-    public case_noir(int i, int j){
+    public case_noir(int i){
         super();
-        setSize(new Dimension(i/62,j/62));
-        setPreferredSize(new Dimension(i/62,j/62));
+        //setSize(new Dimension(i,j));
+        setLayout(new BorderLayout());
+        setPreferredSize((new Dimension(i,i)));
+        
+        
     }
 
     protected void paintComponent(Graphics g) {
