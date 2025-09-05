@@ -1,12 +1,14 @@
-# Programmation Concurrente - Projets
+# Concurrent Programming - Projects
 
-## Description 
-Ce dossier contient plusieurs projets réalisés :
-- **Jeu de la Vie** : Simulation du célèbre automate cellulaire de John Conway.
-- **Calcul de Pi** : Approximation de la valeur de Pi en utilisant différentes méthodes concurrentes.
-- **Tri Fusion** : Implémentation parallèle de l'algorithme de tri fusion.
+## Description
 
-Un rapport détaillant les projets et leur mise en œuvre est également inclus.
+This repository contains several projects implemented as part of a concurrent programming course:
+
+* **Game of Life**: Simulation of John Conway's famous cellular automaton
+* **Pi Calculation**: Pi value approximation using various concurrent methods
+* **Merge Sort**: Parallel implementation of the merge sort algorithm
+
+A detailed report documenting the projects and their implementation is also included.
 
 Harish Prabakaran
 Sarah Sebbane
