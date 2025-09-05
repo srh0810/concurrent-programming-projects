@@ -8,7 +8,7 @@ This repository contains several projects implemented as part of a concurrent pr
 * **Pi Calculation**: Pi value approximation using various concurrent methods
 * **Merge Sort**: Parallel implementation of the merge sort algorithm
 
-A detailed report documenting the projects and their implementation is also included.
+A detailed report documenting the projects and their implementation is also included (in French).
 
 Harish Prabakaran
 Sarah Sebbane
